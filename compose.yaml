@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+###> sensiolabs/gotenberg-bundle ###
+  gotenberg:
+    image: 'gotenberg/gotenberg:8'
+###< sensiolabs/gotenberg-bundle ###
