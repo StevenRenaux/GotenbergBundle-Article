@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>PDF body</title>
+    </head>
+    <body>
+        <main>
+            <table>
+                <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Service Period</th>
+                    <th>Product Description</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Line Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for purchase in data.purchases %}
+                    <tr>
+                        <td>{{ purchase.orderId }}</td>
+                        <td>{{ purchase.period }}</td>
+                        <td>{{ purchase.description }}</td>
+                        <td>{{ purchase.price }}</td>
+                        <td>{{ purchase.quantity }}</td>
+                        <td>{{ purchase.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <p>Subtotal</p>
+                        </div>
+                        <div>
+                            <p>{{ data.invoice.sub_total }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <p>Total</p>
+                        </div>
+                        <div>
+                            <p>{{ data.invoice.total }}</p>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <p>QUESTIONS?</p>
+                    </div>
+                    <div>
+                        <p>Submit them by email to example@sensiolabs.com</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
