@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use Faker\Factory;
-use Sensiolabs\GotenbergBundle\Enumeration\PaperSize;
-use Sensiolabs\GotenbergBundle\Enumeration\Unit;
 use Sensiolabs\GotenbergBundle\GotenbergPdfInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +24,6 @@ class InvoiceController extends AbstractController
                 'purchases' => $this->invoiceData()['purchases'],
                 'invoice' => $this->invoiceData()['invoice'],
             ])
-            ->footer('footer.html.twig')
-            ->landscape()
-            ->paperStandardSize(PaperSize::A4)
-            ->marginTop(6, Unit::Centimeters)
-            ->marginBottom(2, Unit::Centimeters)
             ->generate()
         ;
     }
