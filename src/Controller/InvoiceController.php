@@ -16,8 +16,8 @@ class InvoiceController extends AbstractController
         $allPurchases = [];
         for ($i = 0; $i < 20; $i++) {
             $allPurchases[] = [
-                'orderId' => $factory->uuid(),
-                'period' => $factory->dateTimeBetween('- 1 week')->format('Y-m-d') . ' ' . $factory->dateTime('now')->format('Y-m-d'),
+                'orderId' => $factory->unixTime(),
+                'period' => $factory->dateTimeBetween('- 1 week')->format('Y-m-d') . ' - ' . $factory->dateTime('now')->format('Y-m-d'),
                 'description' => $factory->sentence(),
                 'price' => $factory->randomFloat(2, 1),
                 'quantity' => $factory->randomDigitNotZero(),
