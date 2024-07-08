@@ -19,14 +19,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for purchase in data.purchases %}
+                {% for purchase in purchases %}
                     <tr>
                         <td class="order-column">{{ purchase.orderId }}</td>
                         <td class="period-column">{{ purchase.period }}</td>
                         <td class="description-column">{{ purchase.description }}</td>
-                        <td class="price-column table-column--right">{{ purchase.price }}</td>
+                        <td class="price-column table-column--right">{{ purchase.price|format_currency('USD') }}</td>
                         <td class="qty-column table-column--right">{{ purchase.quantity }}</td>
-                        <td class="line-total-column table-column--right">{{ purchase.total }}</td>
+                        <td class="line-total-column table-column--right">{{ purchase.total|format_currency('USD') }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -38,7 +38,7 @@
                             <p class="total-label">Subtotal</p>
                         </div>
                         <div class="total-container--right">
-                            <p>{{ data.invoice.sub_total }}</p>
+                            <p>{{ invoice.sub_total|format_currency('USD') }}</p>
                         </div>
                     </div>
                     <div class="total-container">
@@ -46,7 +46,7 @@
                             <p class="total-label">Total</p>
                         </div>
                         <div class="total-container--right">
-                            <p>{{ data.invoice.total }}</p>
+                            <p>{{ invoice.total|format_currency('USD') }}</p>
                         </div>
                     </div>
                 </div>
