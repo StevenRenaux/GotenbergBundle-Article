@@ -17,7 +17,10 @@ class InvoiceController extends AbstractController
     {
         return $gotenbergPdf
             ->html()
-            ->content('content.html.twig', ['data' => $this->invoiceData()])
+            ->content('content.html.twig', [
+                'purchases' => $this->invoiceData()['purchases'],
+                'invoice' => $this->invoiceData()['invoice'],
+            ])
             ->landscape()
             ->paperStandardSize(PaperSize::A4)
             ->generate()
