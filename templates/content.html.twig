@@ -18,14 +18,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for purchase in data.purchases %}
+                {% for purchase in purchases %}
                     <tr>
                         <td>{{ purchase.orderId }}</td>
                         <td>{{ purchase.period }}</td>
                         <td>{{ purchase.description }}</td>
-                        <td>{{ purchase.price }}</td>
+                        <td>{{ purchase.price|format_currency('USD') }}</td>
                         <td>{{ purchase.quantity }}</td>
-                        <td>{{ purchase.total }}</td>
+                        <td>{{ purchase.total|format_currency('USD') }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -37,7 +37,7 @@
                             <p>Subtotal</p>
                         </div>
                         <div>
-                            <p>{{ data.invoice.sub_total }}</p>
+                            <p>{{ invoice.sub_total|format_currency('USD') }}</p>
                         </div>
                     </div>
                     <div>
@@ -45,7 +45,7 @@
                             <p>Total</p>
                         </div>
                         <div>
-                            <p>{{ data.invoice.total }}</p>
+                            <p>{{ invoice.total|format_currency('USD') }}</p>
                         </div>
                     </div>
                     <div></div>
