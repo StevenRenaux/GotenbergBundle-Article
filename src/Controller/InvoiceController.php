@@ -16,15 +16,17 @@ class InvoiceController extends AbstractController
     #[Route('/pdf', 'pdf')]
     public function pdf(GotenbergPdfInterface $gotenbergPdf): Response
     {
+        $invoiceData = $this->invoiceData();
+
         return $gotenbergPdf
             ->html()
             ->header('header.html.twig', [
-                'invoice' => $this->invoiceData()['invoice'],
-                'client' => $this->invoiceData()['client'],
+                'invoice' => $invoiceData['invoice'],
+                'client' => $invoiceData['client'],
             ])
             ->content('content.html.twig', [
-                'purchases' => $this->invoiceData()['purchases'],
-                'invoice' => $this->invoiceData()['invoice'],
+                'purchases' => $invoiceData['purchases'],
+                'invoice' => $invoiceData['invoice'],
             ])
             ->landscape()
             ->paperStandardSize(PaperSize::A4)
