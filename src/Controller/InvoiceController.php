@@ -21,8 +21,8 @@ class InvoiceController extends AbstractController
         return $gotenbergPdf
             ->html()
             ->header('header.html.twig', [
-                'invoice' => $this->invoiceData()['invoice'],
-                'client' => $this->invoiceData()['client'],
+                'invoice' => $invoiceData['invoice'],
+                'client' => $invoiceData['client'],
             ])
             ->content('content.html.twig', [
                 'purchases' => $invoiceData['purchases'],
