@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>PDF footer</title>
         <style>
             .footer-details {
                 margin-left: 50px;
@@ -11,6 +10,7 @@
         </style>
     </head>
     <body>
+        {# We can use classes to inject printing values as date, title, url, pageNumber or totalPages #}
         <p class="footer-details">Page <span class="pageNumber"></span> of <span class="totalPages"></span></p>
     </body>
 </html>
