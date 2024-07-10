@@ -34,6 +34,7 @@ class InvoiceController extends AbstractController
                 'total' => $factory->randomFloat(2, 1),
             ],
             'client' => [
+                'phone_number' => $factory->e164PhoneNumber(),
                 'name' => $factory->company(),
                 'address' => $factory->address(),
                 'city' => $factory->city(),
