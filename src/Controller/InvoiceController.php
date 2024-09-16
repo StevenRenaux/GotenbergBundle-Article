@@ -26,6 +26,7 @@ class InvoiceController extends AbstractController
             ->landscape()
             ->paperStandardSize(PaperSize::A4)
             ->generate()
+            ->stream()
         ;
     }
 
