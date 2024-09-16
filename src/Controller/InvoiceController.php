@@ -23,6 +23,7 @@ class InvoiceController extends AbstractController
                 'invoice' => $invoiceData['invoice'],
             ])
             ->generate()
+            ->stream()
         ;
     }
 
