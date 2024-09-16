@@ -32,6 +32,7 @@ class InvoiceController extends AbstractController
             ->paperStandardSize(PaperSize::A4)
             ->marginTop(6, Unit::Centimeters)
             ->generate()
+            ->stream()
         ;
     }
 
