@@ -11,8 +11,8 @@ sensiolabs_gotenberg:
             html:
                 footer:
                     template: 'footer.html.twig'
-                paper_width: 8.27
-                paper_height: 11.7
-                margin_top: 2.4
-                margin_bottom: 0.8
+                paper_width: '21cm'
+                paper_height: '29.7cm'
+                margin_top: '6cm'
+                margin_bottom: '2cm'
                 landscape: true
