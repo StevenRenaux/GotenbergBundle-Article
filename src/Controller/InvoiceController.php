@@ -34,6 +34,7 @@ class InvoiceController extends AbstractController
             ->marginTop(6, Unit::Centimeters)
             ->marginBottom(2, Unit::Centimeters)
             ->generate()
+            ->stream()
         ;
     }
 
