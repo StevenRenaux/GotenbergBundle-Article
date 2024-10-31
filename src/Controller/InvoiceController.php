@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Faker\Factory;
 use Sensiolabs\GotenbergBundle\Enumeration\PaperSize;
+use Sensiolabs\GotenbergBundle\Enumeration\Unit;
 use Sensiolabs\GotenbergBundle\GotenbergPdfInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +20,17 @@ class InvoiceController extends AbstractController
 
         return $gotenbergPdf
             ->html()
+            ->header('header.html.twig', [
+                'invoice' => $invoiceData['invoice'],
+                'client' => $invoiceData['client'],
+            ])
             ->content('content.html.twig', [
                 'purchases' => $invoiceData['purchases'],
                 'invoice' => $invoiceData['invoice'],
             ])
             ->landscape()
             ->paperStandardSize(PaperSize::A4)
+            ->marginTop(6, Unit::Centimeters)
             ->generate()
             ->stream()
         ;

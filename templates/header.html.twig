@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            :root {
+                --title-gray-color: #3a3939;
+                --text-gray-color: #c5c5c5;
+            }
+
+            p {
+                margin: 3px 0;
+            }
+
+            .header-body {
+                margin: 0 45px;
+                font-size: 10px;
+                width: 100%;
+            }
+
+            .header-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-container-top {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo-container {
+                width: 70%;
+            }
+
+            .invoice-reference-container {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+            }
+
+            .invoice-title {
+                letter-spacing: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                color: var(--title-gray-color);
+                text-align: center;
+                margin: 0;
+            }
+
+            .reference-container {
+                display: flex;
+                flex-direction: row;
+                gap: 7px;
+                margin: auto;
+            }
+
+            .reference-container-left,
+            .recipient-container-left {
+                color: var(--text-gray-color);
+                font-weight: bold;
+            }
+            .reference-container-left {
+                text-align: end;
+            }
+
+            .header-container-bottom {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .recipient-container {
+                width: 70%;
+                display: flex;
+                flex-direction: row;
+                gap: 10rem;
+            }
+            .recipient-container-left {
+                text-align: left;
+                width: 14%;
+            }
+
+            .recipient-container-right {
+                font-style: italic;
+            }
+
+            .greeting-container {
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .greeting {
+                font-style: italic;
+                color: var(--text-gray-color);
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header-body">
+            <div class="header-container">
+                <div class="header-container-top">
+                    <div class="logo-container"></div>
+                    <div class="invoice-reference-container">
+                        <div class="invoice-title-container">
+                            <h3 class="invoice-title">INVOICE</h3>
+                        </div>
+                        <div class="reference-container">
+                            <div class="reference-container-left">
+                                <p>Id:</p>
+                                <p>Issued:</p>
+                                <p>Due:</p>
+                                <p>Total:</p>
+                                <p>Ref:</p>
+                            </div>
+                            <div class="reference-container-right">
+                                <p>{{ invoice.id }}</p>
+                                <p>{{ invoice.date }}</p>
+                                <p>{{ invoice.due_date }}</p>
+                                <p>{{ invoice.total }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-container-bottom">
+                    <div class="recipient-container">
+                            <div class="recipient-container-left">
+                                <p>Bill To:</p>
+                            </div>
+                            <div class="recipient-container-right">
+                                <p>{{ client.name }}</p>
+                                <p>{{ client.address }}</p>
+                                <p>{{ client.city }}</p>
+                            </div>
+                    </div>
+                    <div class="greeting-container">
+                        <p class="greeting">We appreciate your business.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>
