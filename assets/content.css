@@ -1,0 +1,110 @@
+* {
+    font-family: Helvetica, serif;
+}
+
+:root {
+    --text-blue-color: #0077BE;
+    --font-size-medium: 14px;
+}
+
+p {
+    margin: 0.25rem 0;
+}
+
+.invoice-body {
+    font-size: var(--font-size-medium);
+}
+
+table {
+    width: 100%;
+}
+
+.table-title--left {
+    text-align: start;
+}
+
+.table-title--right,
+.table-column--right {
+    text-align: end;
+}
+
+tbody {
+    box-shadow: 0 0 0 1px black;
+}
+
+tbody tr td {
+    padding-bottom: 1rem;
+}
+
+td {
+    vertical-align: top;
+}
+
+th,
+td {
+    padding: 0 0.5rem;
+}
+
+.order-column {
+    width: 10%;
+}
+
+.period-column {;
+    width: 20%;
+}
+
+.description-column {
+    width: 30%;
+}
+
+.price-column, .qty-column, .line-total-column {
+    width: 10%;
+}
+
+tr,
+.invoice-footer,
+.contact-container {
+    page-break-inside: avoid;
+}
+
+thead,
+.total-label,
+.contact-label {
+    color: var(--text-blue-color);
+}
+
+.invoice-footer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.all-total-container {
+    width: 20%;
+    border-bottom: 1px solid black;
+    margin-right: 1rem;
+}
+
+.total-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.total-container--left {
+    width: 30%;
+    text-align: end;
+}
+
+.total-container--right {
+    width: 70%;
+    text-align: end;
+}
+
+.contact-container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}

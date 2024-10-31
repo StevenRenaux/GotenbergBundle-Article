@@ -2,62 +2,60 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{{ gotenberg_asset('content.css') }}"/>
     </head>
-    <body>
+    <body class="invoice-body">
         <main>
             <table>
                 <thead>
                 <tr>
-                    <th>Order</th>
-                    <th>Service Period</th>
-                    <th>Product Description</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th>Line Total</th>
+                    <th class="table-title--left">Order</th>
+                    <th class="table-title--left">Service Period</th>
+                    <th class="table-title--left">Product Description</th>
+                    <th class="table-title--right">Price</th>
+                    <th class="table-title--right">Qty</th>
+                    <th class="table-title--right">Line Total</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for purchase in purchases %}
                     <tr>
-                        <td>{{ purchase.orderId }}</td>
-                        <td>{{ purchase.period }}</td>
-                        <td>{{ purchase.description }}</td>
-                        <td>{{ purchase.price|format_currency('USD') }}</td>
-                        <td>{{ purchase.quantity }}</td>
-                        <td>{{ purchase.total|format_currency('USD') }}</td>
+                        <td class="order-column">{{ purchase.orderId }}</td>
+                        <td class="period-column">{{ purchase.period }}</td>
+                        <td class="description-column">{{ purchase.description }}</td>
+                        <td class="price-column table-column--right">{{ purchase.price|format_currency('USD') }}</td>
+                        <td class="qty-column table-column--right">{{ purchase.quantity }}</td>
+                        <td class="line-total-column table-column--right">{{ purchase.total|format_currency('USD') }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <p>Subtotal</p>
+            <div class="invoice-footer">
+                <div class="all-total-container">
+                    <div class="total-container">
+                        <div class="total-container--left">
+                            <p class="total-label">Subtotal</p>
                         </div>
-                        <div>
+                        <div class="total-container--right">
                             <p>{{ invoice.sub_total|format_currency('USD') }}</p>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <p>Total</p>
+                    <div class="total-container">
+                        <div class="total-container--left">
+                            <p class="total-label">Total</p>
                         </div>
-                        <div>
+                        <div class="total-container--right">
                             <p>{{ invoice.total|format_currency('USD') }}</p>
                         </div>
                     </div>
-                    <div></div>
                 </div>
             </div>
-            <div>
+            <div class="contact-container">
                 <div>
-                    <div>
-                        <p>QUESTIONS?</p>
-                    </div>
-                    <div>
-                        <p>Submit them by email to example@sensiolabs.com</p>
-                    </div>
+                    <p class="contact-label">QUESTIONS?</p>
+                </div>
+                <div>
+                    <p>Submit them by email to example@sensiolabs.com</p>
                 </div>
             </div>
         </main>
