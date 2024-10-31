@@ -85,6 +85,12 @@
                 font-style: italic;
             }
 
+            .recipient-container-right--phone {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+            }
+
             .greeting-container {
                 width: 30%;
                 display: flex;
@@ -103,7 +109,11 @@
         <header class="header-body">
             <div class="header-container">
                 <div class="header-container-top">
-                    <div class="logo-container"></div>
+                    <div class="logo-container">
+                        <div>
+                            {% include('logo/sensiolabs.svg') %}
+                        </div>
+                    </div>
                     <div class="invoice-reference-container">
                         <div class="invoice-title-container">
                             <h3 class="invoice-title">INVOICE</h3>
@@ -134,6 +144,10 @@
                                 <p>{{ client.name }}</p>
                                 <p>{{ client.address }}</p>
                                 <p>{{ client.city }}</p>
+                                <div class="recipient-container-right--phone">
+                                    <p>{{ client.phone_number }}</p>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAy0lEQVR4nK3SMUrDQRDF4S9EiCBB0iQWapEiaRUjabyFomivkBzDxjReQC0iKDYKyQ1lYIptTPYPPljYZfm93Zl5/JOO8Yh3HDQBp/jAGEM8N4Hf0CnO8Xq3Fn7FbnGe46IWvsJt7s/wiXYtvINvtPCEUw11g3v0sMZeU4MlRvnyV2HQzh50N8H7WGGQBvGDk+zBLKcQY+z/ZXCYBqMsYYFJcT/Ey7YfRAkP2cRSEaRI4lZd4wd3mYNYUcJRDRyKMV5mCiNM57XgRv0CBCcYeiMgBJ0AAAAASUVORK5CYII=">
+                                </div>
                             </div>
                     </div>
                     <div class="greeting-container">
