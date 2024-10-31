@@ -28,9 +28,11 @@ class InvoiceController extends AbstractController
                 'purchases' => $invoiceData['purchases'],
                 'invoice' => $invoiceData['invoice'],
             ])
+            ->footer('footer.html.twig')
             ->landscape()
             ->paperStandardSize(PaperSize::A4)
             ->marginTop(6, Unit::Centimeters)
+            ->marginBottom(2, Unit::Centimeters)
             ->generate()
             ->stream()
         ;
