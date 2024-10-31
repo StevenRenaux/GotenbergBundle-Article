@@ -1,0 +1,6 @@
+services:
+###> sensiolabs/gotenberg-bundle ###
+  gotenberg:
+    ports:
+      - "3000:3000"
+###< sensiolabs/gotenberg-bundle ###
