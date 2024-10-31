@@ -3,12 +3,30 @@
 namespace App\Controller;
 
 use Faker\Factory;
+use Sensiolabs\GotenbergBundle\GotenbergPdfInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/invoice', name: 'invoice_')]
 class InvoiceController extends AbstractController
 {
+    #[Route('/pdf', 'pdf')]
+    public function pdf(GotenbergPdfInterface $gotenbergPdf): Response
+    {
+        $invoiceData = $this->invoiceData();
+
+        return $gotenbergPdf
+            ->html()
+            ->content('content.html.twig', [
+                'purchases' => $invoiceData['purchases'],
+                'invoice' => $invoiceData['invoice'],
+            ])
+            ->generate()
+            ->stream()
+        ;
+    }
+
     private function invoiceData(): array
     {
         $factory = Factory::create();
